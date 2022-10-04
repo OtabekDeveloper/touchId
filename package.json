@@ -1,0 +1,38 @@
+{
+  "name": "e-murojat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/OtabekDeveloper/e-murojat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/OtabekDeveloper/e-murojat/issues"
+  },
+  "homepage": "https://github.com/OtabekDeveloper/e-murojat#readme",
+  "dependencies": {
+    "@hapi/joi": "^17.1.1",
+    "app-root-path": "^3.1.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "express-validation": "^4.1.0",
+    "helmet": "^6.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "moment": "^2.29.4",
+    "mongoose": "^6.6.1",
+    "morgan": "^1.10.0",
+    "node-telegram-bot-api": "^0.59.0",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  }
+}
