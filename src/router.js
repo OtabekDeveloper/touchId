@@ -2,19 +2,23 @@ const router = require("express").Router();
 const adminRouter = require("./admin/router");
 const authRouter = require("./auth/router");
 const userRouter = require("./user/router");
-const regionRouter = require("./region/router");
 const categoryRouter = require("./category/router");
-const objectRouter = require("./object/router");
-const sectorRouter = require("./sector/router");
-const worksRouter = require("./works/router");
+const demartmentRouter = require("./department/router")
+const orderRouter = require("./order/router")
+const organizationRouter = require("./organization/router")
+const rankRouter = require("./rank/router")
+const roomRouter = require("./room/router")
+
+
 
 router.use("/admin", adminRouter);
 router.use("/auth", authRouter);
 router.use("/users", userRouter);
-router.use("/regions", regionRouter);
-router.use("/works", worksRouter);
-router.use("/categories", categoryRouter);
-router.use("/objects", objectRouter);
-router.use("/sectors", sectorRouter);
+router.use("/departments", demartmentRouter);
+router.use("/orders", orderRouter);
+router.use("/organizations", organizationRouter);
+router.use("/ranks", rankRouter);
+router.use("/rooms", roomRouter);
+router.use("/categorys", categoryRouter);
 
 module.exports = router;

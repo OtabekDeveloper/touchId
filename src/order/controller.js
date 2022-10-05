@@ -1,10 +1,10 @@
-const Works = require("./model");
-const { bot } = require("../telegram/telegram2");
+const Orders = require("./model");
+
 
 module.exports = {
   addNew: async function (req, res) {
     try {
-      let result = await Works.create(req.body);
+      let result = await Orders.create(req.body);
       if (!result) {
         return res.status(400).send("yaratishda hato");
       }
@@ -14,10 +14,10 @@ module.exports = {
     }
   },
 
-  getWorks: async function (req, res) {
+  getOrders: async function (req, res) {
     try {
-      let Works = await Works.find({});
-      return res.status(200).send(Works);
+      let orders = await Orders.find({});
+      return res.status(200).send(orders);
     } catch (err) {
       return res.status(400).send(err);
     }
@@ -25,71 +25,29 @@ module.exports = {
 
   getWorkId: async function (req, res) {
     try {
-      let Work = await Works.findById(req.params.id);
-      return res.status(200).send(Work);
+      let order = await Orders.findById(req.params.id);
+      return res.status(200).send(order);
     } catch (err) {
       return res.status(400).send(err);
     }
   },
 
-  deleteWorks: async function (req, res) {
+  deleteOrders: async function (req, res) {
     try {
-      let worksId = req.params.id;
-      let result = await Works.findByIdAndDelete(worksId);
+      let ordersId = req.params.id;
+      let result = await Orders.findByIdAndDelete(ordersId);
       return res.status(200).send(result);
     } catch (err) {
       return res.status(400).send(err);
     }
   },
 
-  updateWorks: async function (req, res) {
+  updateOrders: async function (req, res) {
     try {
-      let worksId = req.params.id;
-      let result = await Works.findByIdAndUpdate(worksId, req.body);
+      let ordersId = req.params.id;
+      let result = await Orders.findByIdAndUpdate(ordersId, req.body);
       return res.status(200).send(result);
     } catch (err) {
-      return res.status(400).send(err);
-    }
-  },
-
-  answer: async function (req, res) {
-    try {
-      const { workId, title, media } = req.body;
-      let work = await Works.findOne({ workId: workId });
-      if (!work) {
-        return res.status(400).send("work not found");
-      }
-
-      work.resp.push({
-        media: media,
-        title: title,
-      });
-
-      let result = await Works.findByIdAndUpdate(
-        work._id,
-        {
-          resp: work.resp,
-        },
-        { new: true }
-      );
-
-      if (result) {
-        let files = [];
-        let foo = result.resp.pop();
-        foo.media;
-
-        let caption = `\n
-✅ Siz jo'natgan : #${result.workId} raqamli ish ko'rib chiqildi\n
-🗒 Natija sizni qoniqtirdimi 
-            `;
-        foo.media[0].caption = caption;
-        console.log(foo.media);
-        await bot.sendMediaGroup(result.chatId, foo.media);
-      }
-
-      return res.status(200).send(result);
-    } catch (err) {
-      console.log(err);
       return res.status(400).send(err);
     }
   },
