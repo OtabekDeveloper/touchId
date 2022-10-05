@@ -9,14 +9,14 @@ const organizationRouter = require("./organization/router")
 const rankRouter = require("./rank/router")
 const roomRouter = require("./room/router")
 
-router.use("/admin", adminRouter);
-router.use("/auth", authRouter);
-router.use("/users", userRouter);
-router.use("/departments", demartmentRouter);
+router.use("/admin", adminRouter); //
+router.use("/auth", authRouter); //
+router.use("/users", userRouter); //
+router.use("/departments", demartmentRouter); //
 router.use("/orders", orderRouter);
-router.use("/organizations", organizationRouter);
-router.use("/ranks", rankRouter);
-router.use("/rooms", roomRouter);
-router.use("/categorys", categoryRouter);
+router.use("/organizations", organizationRouter); //
+router.use("/ranks", rankRouter); //
+router.use("/rooms", roomRouter); //
+router.use("/categorys", categoryRouter); //
 
 module.exports = router;
