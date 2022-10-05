@@ -8,23 +8,23 @@ const Controller = require("./controller");
 
 router.use(authenticate);
 
-const permitReadAll = permit("sector", ["readAll"]);
+const permitReadAll = permit("room", ["readAll"]);
 router.route("/").get(permitReadAll, Controller.findAll);
 
-const permitRead = permit("sector", ["read"]);
+const permitRead = permit("room", ["read"]);
 router.route("/:id").get(permitRead, Controller.findOne);
 
-const permitCreate = permit("sector", ["create"]);
+const permitCreate = permit("room", ["create"]);
 router
   .route("/")
   .post(permitCreate, validate(Validator.addNew), Controller.addNew);
 
-const permitUpdate = permit("sector", ["update"]);
+const permitUpdate = permit("room", ["update"]);
 router
   .route("/:id")
   .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
 
-const permitDelete = permit("sector", ["delete"]);
+const permitDelete = permit("room", ["delete"]);
 router
   .route("/:id")
   .delete(permitDelete, validate(Validator.deleteOne), Controller.deleteOne);

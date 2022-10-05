@@ -1,51 +1,63 @@
 module.exports = {
   admin: [
     {
-      resource: "region",
-      permissions: ["read", "readAll", "create", "update", "delete"],
-    },
-    {
-      resource: "sector",
-      permissions: ["read", "readAll", "create", "update", "delete"],
-    },
-    {
-      resource: "object",
-      permissions: ["read", "readAll", "create", "update", "delete"],
-    },
-    {
       resource: "category",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "department",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "order",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "organization",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "rank",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "room",
       permissions: ["read", "readAll", "create", "update", "delete"],
     },
     {
       resource: "user",
       permissions: ["read", "readAll", "create", "update", "delete"],
     },
-    {
-      resource: "work",
-      permissions: ["read", "readAll", "create", "update", "delete"],
-    },
   ],
 
-  moderator: [
-    {
-      resource: "region",
-      permissions: ["read", "readAll"],
-    },
-    {
-      resource: "sector",
-      permissions: ["read", "readAll"],
-    },
-    {
-      resource: "object",
-      permissions: ["read", "readAll"],
-    },
+  organization: [
     {
       resource: "category",
-      permissions: ["read", "readAll"],
+      permissions: ["read", "readAll", "create", "update", "delete"],
     },
     {
-      resource: "work",
-      permissions: ["read", "readAll", "update"],
+      resource: "department",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "order",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "organization",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "rank",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "room",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
+    {
+      resource: "user",
+      permissions: ["read", "readAll", "create", "update", "delete"],
     },
   ],
 };

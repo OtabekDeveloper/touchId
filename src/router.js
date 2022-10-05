@@ -9,8 +9,6 @@ const organizationRouter = require("./organization/router")
 const rankRouter = require("./rank/router")
 const roomRouter = require("./room/router")
 
-
-
 router.use("/admin", adminRouter);
 router.use("/auth", authRouter);
 router.use("/users", userRouter);

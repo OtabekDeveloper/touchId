@@ -8,19 +8,19 @@ const Controller = require("./controller");
 
 router.use(authenticate);
 
-const permitReadAll = permit("region", ["readAll"]);
+const permitReadAll = permit("organization", ["readAll"]);
 router.route("/").get(permitReadAll, Controller.findAll);
 
-const permitRead = permit("region", ["read"]);
+const permitRead = permit("organization", ["read"]);
 router.route("/:id").get(permitRead, Controller.findOne);
 
-const permitCreate = permit("region", ["create"]);
+const permitCreate = permit("organization", ["create"]);
 router.route("/").post(permitCreate, validate(Validator.addNew), Controller.addNew);
 
-const permitUpdate = permit("region", ["update"]);
+const permitUpdate = permit("organization", ["update"]);
 router.route("/:id").put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
 
-const permitDelete = permit("region", ["delete"]);
+const permitDelete = permit("organization", ["delete"]);
 router.route("/:id").delete(permitDelete, validate(Validator.deleteOne), Controller.deleteOne);
 
 module.exports = router;
