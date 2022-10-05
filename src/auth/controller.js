@@ -7,7 +7,7 @@ const User = require("../user/model");
 module.exports = {
   login: async function (req, res, next) {
     try {
-      const doc = await User.findOne({ username: req.body.username }).exec();
+      const doc = await User.findOne({ phone: req.body.phone }).exec();
       if (!doc) return res.status(404).json({ error: "user not found" });
       if (doc.password === req.body.password) {
         const token = jwt.sign(
