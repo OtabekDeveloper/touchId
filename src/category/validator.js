@@ -3,7 +3,7 @@ const Joi = require("@hapi/joi");
 module.exports = {
   addNew: {
     body: {
-      name: Joi.string().min(3).max(100).required(),
+      title: Joi.string().min(3).max(100).required(),
     },
   },
 
