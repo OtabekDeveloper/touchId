@@ -9,7 +9,7 @@ const Controller = require("./controller");
 router.use(authenticate);
 
 const permitReadAll = permit("user", ["readAll"]);
-router.route("/").post(permitReadAll,validate(Validator.findAll) ,Controller.findAll);
+router.route("/find").post(permitReadAll,validate(Validator.findAll) ,Controller.findAll);
 
 const permitRead = permit("user", ["read"]);
 router.route("/:id").get(permitRead, Controller.findOne);
