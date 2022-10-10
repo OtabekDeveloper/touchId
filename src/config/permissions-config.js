@@ -28,9 +28,17 @@ module.exports = {
       resource: "user",
       permissions: ["read", "readAll", "create", "update", "delete"],
     },
+    {
+      resource: "device",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
   ],
 
   organization: [
+    {
+      resource: "device",
+      permissions: ["read", "readAll", "create", "update", "delete"],
+    },
     {
       resource: "category",
       permissions: ["read", "readAll", "create", "update", "delete"],

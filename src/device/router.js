@@ -8,23 +8,23 @@ const Controller = require("./controller");
 
 router.use(authenticate);
 
-const permitReadAll = permit("department", ["readAll"]);
+const permitReadAll = permit("device", ["readAll"]);
 router.route("/").get(permitReadAll, Controller.findAll);
 
-const permitRead = permit("department", ["read"]);
+const permitRead = permit("device", ["read"]);
 router.route("/:id").get(permitRead, Controller.findOne);
 
-const permitCreate = permit("department", ["create"]);
+const permitCreate = permit("device", ["create"]);
 router
   .route("/")
   .post(permitCreate, validate(Validator.addNew), Controller.addNew);
 
-const permitUpdate = permit("department", ["update"]);
+const permitUpdate = permit("device", ["update"]);
 router
   .route("/:id")
   .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
 
-const permitDelete = permit("department", ["delete"]);
+const permitDelete = permit("device", ["delete"]);
 router
   .route("/:id")
   .delete(permitDelete, validate(Validator.deleteOne), Controller.deleteOne);
