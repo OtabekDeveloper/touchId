@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const DepartmentSchema = new mongoose.Schema(
+const DeviceSchema = new mongoose.Schema(
   {
     title : {
       type : String,
@@ -16,4 +16,4 @@ const DepartmentSchema = new mongoose.Schema(
   { versionKey: false }
 );
 
-module.exports = mongoose.model("Department", DepartmentSchema);
+module.exports = mongoose.model("Device", DeviceSchema);
