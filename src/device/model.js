@@ -19,7 +19,8 @@ const ParametrSchema = new mongoose.Schema({
   subCategory : {type: mongoose.Schema.Types.ObjectId, default : null},
   category : {type: mongoose.Schema.Types.ObjectId, default : null},
   parametr : { type : Object , required : true }
-})
+},
+{ versionKey: false })
 
 const Parametr = mongoose.model("Parametr" , ParametrSchema)
 const Device = mongoose.model("Device", DeviceSchema);
