@@ -1,5 +1,5 @@
 const { ErrorHandler } = require("../util/error");
-const Device = require("./model");
+const {Device , Parametr} = require("./model");
 
 module.exports = {
   findAll: async function (req, res, next) {
@@ -54,6 +54,36 @@ module.exports = {
         return res.status(200).json({ _id: doc._id });
     } catch (err) {
       return next(new ErrorHandler(400, "Failed to delete Device", "E185"));
+    }
+  },
+
+  addNewParam: async function (req, res, next) {
+    try {
+      const {subCategory , parametrs} = req.body
+      let doc;
+      for(let i of parametrs){
+        let body = {
+          subCategory : subCategory,
+          parametr : i
+        }
+        doc =  await Parametr.create(body)
+      }
+      if (!doc) throw new Error();
+      return res.status(200).json(doc);
+    } catch (err) {
+      return next(new ErrorHandler(400, "Failed to add new Device", "E183"));
+    }
+  },
+
+  updateOneParam: async function (req, res, next) {
+    try {
+      const doc = await Parametr.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      }).exec();
+      if (!doc) throw new Error();
+      return res.status(200).json(doc);
+    } catch (err) {
+      return next(new ErrorHandler(400, "Failed to update Parametr", "E184"));
     }
   },
 };

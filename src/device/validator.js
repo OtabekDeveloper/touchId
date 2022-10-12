@@ -7,6 +7,12 @@ module.exports = {
     },
   },
 
+  addNewParam : {
+    body : {
+      subCategory : Joi.string().required()
+    }
+  },
+
   updateOne: {
     params: {
       id: Joi.string().required(),
