@@ -19,9 +19,18 @@ router
   .route("/")
   .post(permitCreate, validate(Validator.addNew), Controller.addNew);
 
+  router
+  .route("/patametr")
+  .post(permitCreate, validate(Validator.addNewParam), Controller.addNewParam);
+
+
 const permitUpdate = permit("device", ["update"]);
 router
   .route("/:id")
+  .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
+
+  router
+  .route("/parametr/:id")
   .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
 
 const permitDelete = permit("device", ["delete"]);

@@ -10,10 +10,19 @@ const DeviceSchema = new mongoose.Schema(
     parent : {
       type : mongoose.Schema.Types.ObjectId, 
       default : null
-    },
-    paramets : [Object]
+    }
   },
   { versionKey: false }
 );
 
-module.exports = mongoose.model("Device", DeviceSchema);
+const ParametrSchema = new mongoose.Schema({
+  subCategory : {type: mongoose.Schema.Types.ObjectId, default : null},
+  category : {type: mongoose.Schema.Types.ObjectId, default : null},
+  parametr : { type : Object , required : true }
+})
+
+const Parametr = mongoose.model("Parametr" , ParametrSchema)
+const Device = mongoose.model("Device", DeviceSchema);
+
+
+module.exports = {Device , Parametr}

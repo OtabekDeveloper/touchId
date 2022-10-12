@@ -10,7 +10,8 @@ const UserSchema = new mongoose.Schema(
     phone: {type: String, minlength: 9, maxlength: 9},
     room: { type: mongoose.Schema.Types.ObjectId, default : null },
     rank: { type: mongoose.Schema.Types.ObjectId, default : null },
-    department: { type: mongoose.Schema.Types.ObjectId, default : null },    
+    department: { type: mongoose.Schema.Types.ObjectId, default : null },
+    organization : { type: mongoose.Schema.Types.ObjectId, default : null }    
   },
   { timestamps: true, versionKey: false }
 );
