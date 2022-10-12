@@ -35,6 +35,16 @@ module.exports = {
     }
   },
 
+  getParam: async function (req, res, next) {
+    try {
+      let parametrs = await Parametr.find({subCategory: req.body.subCategory})
+      if (!doc) throw new Error();
+      return res.status(200).json(parametrs);
+    } catch (err) {
+      return next(new ErrorHandler(400, "Failed to get parametrs", "E183"));
+    }
+  },
+
   updateOne: async function (req, res, next) {
     try {
       const doc = await Device.findByIdAndUpdate(req.params.id, req.body, {

@@ -19,9 +19,13 @@ router
   .route("/")
   .post(permitCreate, validate(Validator.addNew), Controller.addNew);
 
-  router
-  .route("/patametr")
+router
+  .route("/parametr")
   .post(validate(Validator.addNewParam), Controller.addNewParam);
+
+router
+  .route("/getParamert")
+  .post(validate(Validator.addNewParam), Controller.getParam);
 
 
 const permitUpdate = permit("device", ["update"]);
