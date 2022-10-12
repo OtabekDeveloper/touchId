@@ -21,7 +21,7 @@ router
 
   router
   .route("/patametr")
-  .post(permitCreate, validate(Validator.addNewParam), Controller.addNewParam);
+  .post(validate(Validator.addNewParam), Controller.addNewParam);
 
 
 const permitUpdate = permit("device", ["update"]);
@@ -31,7 +31,7 @@ router
 
   router
   .route("/parametr/:id")
-  .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
+  .put(validate(Validator.updateOneParam), Controller.updateOneParam);
 
 const permitDelete = permit("device", ["delete"]);
 router
