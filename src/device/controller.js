@@ -81,7 +81,7 @@ module.exports = {
       if (!doc) throw new Error();
       return res.status(200).json(doc);
     } catch (err) {
-      return next(new ErrorHandler(400, "Failed to add new Device", "E183"));
+      return next(new ErrorHandler(400, "Failed to add new Parametr", "E183"));
     }
   },
 
@@ -94,6 +94,16 @@ module.exports = {
       return res.status(200).json(doc);
     } catch (err) {
       return next(new ErrorHandler(400, "Failed to update Parametr", "E184"));
+    }
+  },
+
+  deleteOneParametr: async function (req, res, next) {
+    try {
+        const doc = await Parametr.findByIdAndDelete(req.params.id).exec();
+        if (!doc) throw new Error();
+        return res.status(200).json({ _id: doc._id });
+    } catch (err) {
+      return next(new ErrorHandler(400, "Failed to delete Parametr", "E185"));
     }
   },
 };
