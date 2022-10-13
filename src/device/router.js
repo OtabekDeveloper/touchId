@@ -42,4 +42,9 @@ router
   .route("/:id")
   .delete(permitDelete, validate(Validator.deleteOne), Controller.deleteOne);
 
+  router
+  .route("/parametr/:id")
+  .delete(validate(Validator.deleteOne), Controller.deleteOneParametr);
+
+
 module.exports = router;
