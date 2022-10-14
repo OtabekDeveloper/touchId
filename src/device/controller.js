@@ -104,9 +104,25 @@ module.exports = {
 
   updateOneParam: async function (req, res, next) {
     try {
-      const doc = await Parametr.findByIdAndUpdate(req.params.id, req.body, {
-        new: true,
-      }).exec();
+      const {category , subCategory , parametrs , title} = req.body
+      let doc;    
+      if(title.length>1){
+        await Device.findByIdAndUpdate(subCategory , {
+          title : title
+        })
+      }
+      for(let i of parametrs){
+        if(i?._id){
+          doc = await Parametr.findByIdAndUpdate(i._id , i)
+        } else {
+          let body = {
+            category : category,
+            subCategory : subCategory,
+            parametr : i
+          }
+          doc = await Parametr.create(body)
+        }
+      }
       if (!doc) throw new Error();
       return res.status(200).json(doc);
     } catch (err) {
