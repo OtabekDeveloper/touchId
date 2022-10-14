@@ -69,15 +69,32 @@ module.exports = {
 
   addNewParam: async function (req, res, next) {
     try {
-      const {subCategory , parametrs} = req.body
+      const {subCategory , parametrs , category} = req.body
       let doc;
+      if(category){
+        let result = await Device.create({
+          title : subCategory,
+          parent : category
+        })
+        for(let i of parametrs){
+          let body = {
+            category : category,
+            subCategory : result._id,
+            parametr : i
+          }
+          doc =  await Parametr.create(body)
+        }
+      }else {
+       const sub = await Device.findById(subCategory)
       for(let i of parametrs){
         let body = {
+          category : sub.parent,
           subCategory : subCategory,
           parametr : i
         }
-        doc =  await Parametr.create(body)
+        doc = await Parametr.create(body)
       }
+     }
       if (!doc) throw new Error();
       return res.status(200).json(doc);
     } catch (err) {

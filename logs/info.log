@@ -235,3 +235,5 @@
 {"level":"info","message":"127.0.0.1 - - [12/Oct/2022:11:26:31 +0000] \"PUT /api/devices/patametr/6346a3d78fa36ccb6c513875 HTTP/1.1\" 404 184 \"-\" \"PostmanRuntime/7.29.2\"\n"}
 {"level":"info","message":"127.0.0.1 - - [12/Oct/2022:11:27:05 +0000] \"PUT /api/devices/parametr/6346a3d78fa36ccb6c513875 HTTP/1.1\" 200 127 \"-\" \"PostmanRuntime/7.29.2\"\n"}
 {"level":"info","message":"127.0.0.1 - - [12/Oct/2022:11:34:43 +0000] \"PUT /api/devices/parametr/6346a3d78fa36ccb6c513875 HTTP/1.1\" 200 160 \"-\" \"PostmanRuntime/7.29.2\"\n"}
+{"level":"info","message":"127.0.0.1 - - [14/Oct/2022:04:57:21 +0000] \"POST /api/devices/parametr HTTP/1.1\" 200 134 \"-\" \"PostmanRuntime/7.29.2\"\n"}
+{"level":"info","message":"127.0.0.1 - - [14/Oct/2022:04:59:48 +0000] \"POST /api/devices/parametr HTTP/1.1\" 200 156 \"-\" \"PostmanRuntime/7.29.2\"\n"}
