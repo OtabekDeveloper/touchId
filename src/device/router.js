@@ -33,9 +33,9 @@ router
   .route("/:id")
   .put(permitUpdate, validate(Validator.updateOne), Controller.updateOne);
 
-  router
-  .route("/parametr/:id")
-  .put(validate(Validator.updateOneParam), Controller.updateOneParam);
+router
+  .route("/updateParametr")
+  .post(Controller.updateOneParam);
 
 const permitDelete = permit("device", ["delete"]);
 router
