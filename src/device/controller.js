@@ -59,7 +59,10 @@ module.exports = {
 
   deleteOne: async function (req, res, next) {
     try {
-        const doc = await Device.findByIdAndDelete(req.params.id).exec();
+        const doc = await Device.findById(req.params.id).exec();
+        if(doc?.parent){
+          await Parametr.deleteMany({subCategory : doc._id})
+        }
         if (!doc) throw new Error();
         return res.status(200).json({ _id: doc._id });
     } catch (err) {
