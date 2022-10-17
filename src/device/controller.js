@@ -62,8 +62,9 @@ module.exports = {
         const doc = await Device.findById(req.params.id).exec();
         if(doc?.parent){
           await Parametr.deleteMany({subCategory : doc._id})
+          await Device.findByIdAndDelete(doc._id)
         }else {
-          await Parametr.findByIdAndDelete(doc._id)
+          await Device.findByIdAndDelete(doc._id)
         }
         if (!doc) throw new Error();
         return res.status(200).json({ _id: doc._id });
