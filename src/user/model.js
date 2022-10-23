@@ -11,7 +11,8 @@ const UserSchema = new mongoose.Schema(
     room: { type: mongoose.Schema.Types.ObjectId, default : null },
     rank: { type: mongoose.Schema.Types.ObjectId, default : null },
     department: { type: mongoose.Schema.Types.ObjectId, default : null },
-    organization : { type: mongoose.Schema.Types.ObjectId, default : null }    
+    organization : { type: mongoose.Schema.Types.ObjectId, default : null },
+    chatId :  {type: String, default : null}
   },
   { timestamps: true, versionKey: false }
 );
