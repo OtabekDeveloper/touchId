@@ -14,6 +14,7 @@ const morgan = require("morgan");
 const { ErrorHandler, handleError } = require("./util/error");
 const winston = require("./util/winston.logger");
 const appRouter = require("./router");
+const Telegram = require("./telegram/telegram")
 // const { Telegram } = require("./telegram/telegram2");
 
 // main app
@@ -49,7 +50,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 
-// Telegram();
+Telegram();
 
 app.use("/api", appRouter);
 

@@ -24,6 +24,7 @@ const OrderSchema = new mongoose.Schema(
     },
     status : {
       type : Number,
+      default : 0
     },
     customer : {
       type: mongoose.Schema.Types.ObjectId, 
